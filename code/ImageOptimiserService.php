@@ -65,7 +65,6 @@ class ImageOptimiserService implements ImageOptimiserInterface
                         );
                         $_SERVER['REQUEST_METHOD'] = $requestMethod;
                     }
-
                 } catch (\Exception $e) {
                     if (null !== $this->logger) {
                         $this->logger->error(

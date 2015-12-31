@@ -31,5 +31,4 @@ class OptimisedImagickBackend extends ImagickBackend
         }
     }
 }
-
 }

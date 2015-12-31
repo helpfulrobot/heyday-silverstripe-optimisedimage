@@ -50,16 +50,16 @@ class ResampleImage extends DataExtension
     {
         $extension = strtolower($this->owner->getExtension());
 
-        if($this->owner->getHeight() > $this->getMaxX() || $this->owner->getWidth() > $this->getMaxY()) {
+        if ($this->owner->getHeight() > $this->getMaxX() || $this->owner->getWidth() > $this->getMaxY()) {
             $original = $this->owner->getFullPath();
             $resampled = $original. '.tmp.'. $extension;
 
             $gd = new GD($original);
 
-            if($gd->hasImageResource()) {
+            if ($gd->hasImageResource()) {
                 $gd = $gd->resizeRatio($this->getMaxX(), $this->getMaxY());
 
-                if($gd) {
+                if ($gd) {
                     $gd->writeTo($resampled);
                     unlink($original);
                     rename($resampled, $original);
@@ -77,5 +77,4 @@ class ResampleImage extends DataExtension
     {
         $this->resampleImage();
     }
-
 }
